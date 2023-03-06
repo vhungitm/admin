@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	loading: true,
-	currentUser: {}
+	currentUser: JSON.parse(localStorage.getItem('user'))
 };
 
 const authSlice = createSlice({
@@ -11,7 +11,7 @@ const authSlice = createSlice({
 	reducers: {
 		setCurrentUser: (state, action) => {
 			state.currentUser = action.payload;
-			sessionStorage.setItem(JSON.stringify(action.payload));
+			localStorage.setItem('user', JSON.stringify(action.payload));
 			return state;
 		}
 	}
