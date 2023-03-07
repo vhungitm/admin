@@ -49,7 +49,7 @@
 		flex-direction: column;
 		gap: 14px;
 
-		padding: 8px;
+		padding: 25px 8px 8px 8px;
 
 		.sidebar-menu-item {
 			display: flex;
@@ -65,6 +65,7 @@
 			text-decoration: none;
 
 			cursor: pointer;
+			transition: all 0.2s ease;
 
 			.sidebar-menu-item-icon {
 				width: 24px;
@@ -73,16 +74,19 @@
 
 			.sidebar-menu-item-title {
 				opacity: 0;
-				transition: all 0.5s ease;
+				transition: all 0.5s ease, font-weight 0s ease;
 			}
 
-			&.is-active,
-			&:hover {
+			&.is-active {
 				background: #103295;
 
 				.sidebar-menu-item-title {
 					font-weight: bold;
 				}
+			}
+
+			&:hover {
+				background: #103295;
 			}
 		}
 	}
@@ -109,7 +113,7 @@
 	}
 
 	.sidebar-menu {
-		padding: 8px 0px 8px 8px;
+		padding: 25px 0px 8px 8px;
 
 		.sidebar-menu-item {
 			border-radius: 4px 0px 0px 4px;

@@ -27,9 +27,7 @@ const Sidebar = () => {
 						to={item.href}
 						key={item.name}
 						className={`sidebar-menu-item ${
-							window.location.pathname.startsWith(item.href)
-								? 'is-active'
-								: ''
+							window.location.pathname.startsWith(item.href) ? 'is-active' : ''
 						}`}
 					>
 						<img
@@ -37,9 +35,7 @@ const Sidebar = () => {
 							className="sidebar-menu-item-icon"
 							alt={item.title}
 						/>
-						<div className="sidebar-menu-item-title">
-							{item.title}
-						</div>
+						<div className="sidebar-menu-item-title">{item.title}</div>
 					</Link>
 				))}
 			</div>

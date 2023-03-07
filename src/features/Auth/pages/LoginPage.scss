@@ -16,6 +16,7 @@
 		border-radius: 6px;
 
 		background: white;
+		box-shadow: 0px 4px 12px rgb(4 45 65 / 8%);
 
 		.login-header {
 			position: relative;
@@ -47,7 +48,7 @@
 		}
 
 		.login-body {
-			padding: 80px 40px 40px 40px;
+			padding: 80px 40px 56px 40px;
 
 			.login-error {
 				padding-bottom: 24px;

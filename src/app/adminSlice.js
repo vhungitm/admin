@@ -9,6 +9,12 @@ const initialState = {
 				href: '/home',
 				icon: 'menu-home.png',
 				title: 'Home'
+			},
+			{
+				name: 'news',
+				href: '/news',
+				icon: 'menu-news.png',
+				title: 'News'
 			}
 		]
 	}

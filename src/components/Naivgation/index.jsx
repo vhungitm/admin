@@ -1,4 +1,3 @@
-import LoginPage from 'features/Auth/pages/LoginPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { routes } from './data';
 

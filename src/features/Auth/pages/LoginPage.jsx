@@ -2,23 +2,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { authActions, selectAuth } from 'app/authSlice';
 import { useAppSelector } from 'app/store';
 import { ButtonIconSplit } from 'components/ITM/Button';
-import {
-	FormFieldCheckGroup,
-	FormFieldControlGroup
-} from 'components/ITM/FormField';
+import { FormFieldCheckGroup, FormFieldControlGroup } from 'components/ITM/FormField';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
-
-// CSS
 import './LoginPage.scss';
 
 const LoginPage = () => {
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = useState(false);
-	const [error, setError] = useState();
+	const [error] = useState();
 	const defaultValues = {
 		username: '',
 		password: '',
@@ -43,11 +39,9 @@ const LoginPage = () => {
 
 	const dispatch = useDispatch();
 	const onSubmit = value => {
-		dispatch(
-			authActions.setCurrentUser({
-				username: 'admin'
-			})
-		);
+		dispatch(authActions.setCurrentUser({ username: 'admin' }));
+
+		toast.success('Welcome admin');
 		navigate('/home');
 	};
 
@@ -55,18 +49,14 @@ const LoginPage = () => {
 		<div className="login-container">
 			<form className="login" onSubmit={handleSubmit(onSubmit)}>
 				<div className="login-header">
-					<img
-						src="/media/login/avatar.png"
-						alt="Login"
-						className="login-icon"
-					/>
+					<img src="/media/login/avatar.png" alt="Login" className="login-icon" />
 					<div className="login-title">LOGIN</div>
 				</div>
 
 				<div className="login-body">
 					<div className="login-error">{error}</div>
 					<FormFieldControlGroup
-						label={{ element: 'Username', required: true }}
+						label={{ element: 'Username', required: true, className: 'fw-bold' }}
 						element={{
 							control,
 							name: 'username',
@@ -79,7 +69,7 @@ const LoginPage = () => {
 						className="mb-3"
 					/>
 					<FormFieldControlGroup
-						label={{ element: 'Password', required: true }}
+						label={{ element: 'Password', required: true, className: 'fw-bold' }}
 						element={{
 							control,
 							name: 'password',
@@ -91,9 +81,7 @@ const LoginPage = () => {
 							},
 							iconEnd: {
 								type: 'img',
-								src: showPassword
-									? '/media/login/view-pass.png'
-									: '/media/login/hide-pass.png',
+								src: showPassword ? '/media/login/view-pass.png' : '/media/login/hide-pass.png',
 								onClick: () => {
 									setShowPassword(!showPassword);
 								}

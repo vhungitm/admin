@@ -8,7 +8,13 @@ const HomePage = () => {
 		if (window.location.pathname === '/') navigate('/home');
 	}, [navigate]);
 
-	return <div>HomePage</div>;
+	return (
+		<div className="home">
+			<div className="page-header">
+				<div className="page-header-title">Home</div>
+			</div>
+		</div>
+	);
 };
 
 export default HomePage;
