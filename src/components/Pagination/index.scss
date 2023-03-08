@@ -1,0 +1,130 @@
+.pagination-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	gap: 8px;
+
+	margin-top: 16px;
+
+	.page-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 32px;
+		min-width: 32px;
+		height: 32px;
+
+		border: 1px solid #f1f1f1;
+		background: #fff;
+
+		font-weight: 400;
+		color: #090909;
+
+		cursor: pointer;
+		transition: all 0.5s ease;
+
+		&.is-active {
+			border: 1px solid var(--bg-primary);
+			background: var(--bg-primary);
+
+			font-weight: 600;
+			color: white;
+
+			&:hover {
+				background: var(--bg-hover-primary);
+			}
+		}
+
+		&.first {
+			&::before {
+				display: block;
+
+				width: 16px;
+				height: 16px;
+
+				background: url('../../../public/media/pagination/last.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+
+				content: '';
+				transform: rotate(180deg);
+			}
+
+			&.is-disabled::before {
+				background: url('../../../public/media/pagination/first_disabled.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+				transform: rotate(0deg);
+			}
+		}
+
+		&.prev {
+			&::before {
+				display: block;
+
+				width: 16px;
+				height: 16px;
+
+				background: url('../../../public/media/pagination/next.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+
+				content: '';
+				transform: rotate(180deg);
+			}
+
+			&.is-disabled::before {
+				background: url('../../../public/media/pagination/prev_disabled.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+				transform: rotate(0deg);
+			}
+		}
+
+		&.next {
+			&::before {
+				display: block;
+
+				width: 16px;
+				height: 16px;
+
+				background: url('../../../public/media/pagination/next.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+
+				content: '';
+			}
+
+			&.is-disabled::before {
+				background: url('../../../public/media/pagination/prev_disabled.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+				transform: rotate(180deg);
+			}
+		}
+
+		&.last {
+			&::before {
+				display: block;
+
+				width: 16px;
+				height: 16px;
+
+				background: url('../../../public/media/pagination/last.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+
+				content: '';
+			}
+
+			&.is-disabled::before {
+				background: url('../../../public/media/pagination/first_disabled.webp');
+				background-repeat: no-repeat;
+				background-size: 100%;
+				transform: rotate(180deg);
+			}
+		}
+	}
+}

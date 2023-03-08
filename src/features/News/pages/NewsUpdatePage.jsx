@@ -23,6 +23,10 @@ const NewsUpdatePage = () => {
 	};
 	return (
 		<div className="news-update">
+			<div className="page-carousel">
+				<div className="page-carousel-item">News</div>
+				<div className="page-carousel-item">Update</div>
+			</div>
 			<div className="page-header">
 				<div className="page-header-title">Update News</div>
 			</div>

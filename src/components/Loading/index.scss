@@ -1,0 +1,24 @@
+.loading-shadow {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+
+	width: 100vw;
+	height: 100vh;
+
+	z-index: 51;
+}
+
+.loading-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 20px;
+}
+
+.loading {
+	width: 40px;
+	height: 40px;
+}

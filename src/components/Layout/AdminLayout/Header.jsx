@@ -13,8 +13,7 @@ const Header = () => {
 	// Effect close user menu
 	const ref = useRef();
 	useEffect(() => {
-		const handleCloseUserMenu = e =>
-			!ref?.current?.contains(e.target) && setShowUserMenu(false);
+		const handleCloseUserMenu = e => !ref?.current?.contains(e.target) && setShowUserMenu(false);
 
 		window.addEventListener('click', handleCloseUserMenu);
 		return () => window.removeEventListener('click', handleCloseUserMenu);
@@ -27,26 +26,12 @@ const Header = () => {
 	return (
 		<header className="header">
 			<Link to="/home">
-				<img
-					src="/media/logo.png"
-					className="header-logo"
-					alt="TMA Solutions"
-				/>
+				<img src="/media/logo.png" className="header-logo" alt="TMA Solutions" />
 			</Link>
-			<div
-				ref={ref}
-				className={`header-user ${showUserMenu ? 'is-show-menu' : ''}`}
-				onClick={onShowUserMenu}
-			>
-				<div className="header-user-header">
-					<img
-						src="/media/login/avatar.png"
-						className="header-user-avatar"
-						alt="Avatar"
-					/>
-					<div className="header-user-name">
-						{currentUser?.username}
-					</div>
+			<div ref={ref} className={`header-user ${showUserMenu ? 'is-show-menu' : ''}`} onClick={onShowUserMenu}>
+				<div className="header-user-content">
+					<img src="/media/login/avatar.png" className="header-user-avatar" alt="Avatar" />
+					<div className="header-user-name">{currentUser?.username}</div>
 				</div>
 				<div className="header-user-menu">
 					<div className="header-user-menu-item" onClick={onLogout}>

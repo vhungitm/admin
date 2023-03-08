@@ -10,6 +10,7 @@
 
 	background: white;
 	box-shadow: 0px 4px 12px rgba(4, 45, 65, 0.08);
+	z-index: 50;
 
 	.header-logo {
 		height: 40px;
@@ -22,7 +23,7 @@
 		margin-left: auto;
 		cursor: pointer;
 
-		.header-user-header {
+		.header-user-content {
 			display: flex;
 			align-items: center;
 			gap: 6px;
@@ -79,7 +80,7 @@
 				}
 
 				&:hover {
-					background: #efefef;
+					background: #f8f9fc;
 				}
 			}
 		}

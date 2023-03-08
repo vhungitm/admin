@@ -5,16 +5,46 @@ const initialState = {
 		show: JSON.parse(localStorage.getItem('showSidebar')),
 		menu: [
 			{
-				name: 'home',
+				id: 0,
 				href: '/home',
 				icon: 'menu-home.png',
 				title: 'Home'
 			},
 			{
-				name: 'news',
+				id: 1,
+				href: '/technologies',
+				icon: 'menu-news.png',
+				title: 'Technologies',
+				subTitle: 'Technologies',
+				items: [
+					{
+						id: 0,
+						href: '/technologies/iot',
+						title: 'IoT'
+					},
+					{
+						id: 1,
+						href: '/technologies/5g',
+						title: '5G'
+					}
+				]
+			},
+			{
+				id: 2,
 				href: '/news',
 				icon: 'menu-news.png',
-				title: 'News'
+				title: 'News',
+				subTitle: 'News',
+				items: [
+					{
+						id: 0,
+						title: 'Sub'
+					},
+					{
+						id: 1,
+						title: 'Sub 2'
+					}
+				]
 			}
 		]
 	}
