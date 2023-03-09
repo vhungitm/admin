@@ -1,12 +1,18 @@
 body {
+	--box-shadow: 0px 4px 12px rgb(4 45 65 / 8%);
 	--bg-primary: #0d6efd;
 	--bg-hover-primary: rgba(16, 49, 149, 0.5);
 	--bg-active-primary: #103295;
 	--bg-info: #e0efff;
-
 	--color-primary: #004ca1;
 
-	height: 100vh;
+	position: relative;
 	min-height: 500px;
-	overflow-y: auto;
+	height: 100vh;
+}
+
+.tooltip {
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }

@@ -1,4 +1,6 @@
 .btn.btn-icon-split {
+	--icon-width: 16px;
+
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -18,8 +20,8 @@
 		background: rgba(0, 0, 0, 0.15);
 
 		.icon-start {
-			width: 16px;
-			height: 16px;
+			width: var(--icon-width);
+			height: var(--icon-width);
 		}
 	}
 
@@ -47,7 +49,12 @@
 		position: absolute;
 		right: 10px;
 
-		width: 16px;
-		height: 16px;
+		width: var(--icon-width);
+		height: var(--icon-width);
+	}
+
+	&.btn-sm {
+		--icon-width: 14px;
+		height: 36px;
 	}
 }
