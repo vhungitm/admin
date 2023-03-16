@@ -1,11 +1,12 @@
 import { authActions, selectAuth } from 'app/authSlice';
 import { useAppSelector } from 'app/store';
+import { ButtonIconSplit } from 'itm-ui';
 import { useEffect, useRef, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './Header.scss';
 import { toast } from 'react-toastify';
+import './Header.scss';
 
 const Header = () => {
 	const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const Header = () => {
 			<div ref={ref} className={`header-user ${showUserMenu ? 'is-show-menu' : ''}`} onClick={onShowUserMenu}>
 				<div className="header-user-content">
 					<img src="/media/login/avatar.png" className="header-user-avatar" alt="Avatar" />
-					<div className="header-user-name">{currentUser?.username}</div>
+					<div className="header-user-name">{currentUser?.userName}</div>
 				</div>
 				<div className="header-user-menu">
 					<div className="header-user-menu-item" onClick={onShowLogoutModal}>
@@ -56,10 +57,13 @@ const Header = () => {
 					<Button size="sm" variant="light" onClick={onCloseLogoutModal}>
 						Cancel
 					</Button>
-					<Button size="sm" variant="primary d-flex align-items-center" onClick={onLogout}>
-						<i className="fas fa-sign-out me-2" />
-						Log out
-					</Button>
+					<ButtonIconSplit
+						size="sm"
+						variant="danger"
+						iconStart={{ type: 'css', className: 'fas fa-sign-out' }}
+						element="Log out"
+						onClick={onLogout}
+					/>
 				</Modal.Footer>
 			</Modal>
 		</header>

@@ -2,34 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	sidebar: {
-		show: JSON.parse(localStorage.getItem('showSidebar')),
-		menu: [
-			{
-				id: 0,
-				href: '/home',
-				icon: 'menu-home.png',
-				title: 'Home'
-			},
-			{
-				id: 2,
-				href: '/news',
-				icon: 'menu-news.png',
-				title: 'News',
-				subTitle: 'News',
-				items: [
-					{
-						id: 0,
-						href: '/news/create',
-						title: 'Create'
-					},
-					{
-						id: 1,
-						href: '/news/update',
-						title: 'Update'
-					}
-				]
-			}
-		]
+		show: JSON.parse(localStorage.getItem('showSidebar'))
 	}
 };
 

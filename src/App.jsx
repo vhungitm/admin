@@ -1,4 +1,4 @@
-import 'components/ITM/scss/itm.scss';
+import 'itm-ui/scss/itm.scss';
 import Navigation from 'components/Naivgation';
 
 const App = () => {

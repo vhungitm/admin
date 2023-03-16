@@ -9,9 +9,9 @@ const NotFoundPage = () => {
 				<div className="not-found-title" data-text="404">
 					404
 				</div>
-				<div className="not-found-sub-title">Không tìm thấy trang!</div>
+				<div className="not-found-sub-title">Page Not Found!</div>
 				<div className="not-found-message">
-					Đường dẫn không tồn tại. Quay về <Link to="/home">Trang chủ</Link>
+					The page you are looking for is not found. Go to <Link to="/home">Home Page</Link>
 				</div>
 			</div>
 		</div>

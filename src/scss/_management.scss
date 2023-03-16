@@ -57,31 +57,41 @@
 .page-card {
 	.page-card-header {
 		.page-card-tab {
+			position: relative;
 			display: flex;
 			gap: 8px;
 
+			&:has(.page-card-tab-item .page-card-tab-button) {
+				gap: 24px;
+			}
+
 			.page-card-tab-item {
 				position: relative;
-				display: flex;
-				justify-content: center;
 
-				border-radius: 4px 4px 0px 0px;
-				padding: 14px 32px;
-				min-width: 100px;
+				.page-card-tab-item-title {
+					border-radius: 4px 4px 0px 0px;
+					padding: 14px 32px;
+					min-width: 100px;
 
-				font-weight: 500;
-				color: #a19f9f;
+					font-weight: 500;
+					color: #a19f9f;
 
-				background: #efefef;
-				cursor: pointer;
-				transition: all 0.2s ease;
-				overflow: hidden;
-				z-index: 1;
+					background: #efefef;
+					cursor: pointer;
+					transition: all 0.2s ease;
+				}
 
-				&.is-active {
+				&.is-active .page-card-tab-item-title {
 					background: white;
 					color: var(--color-primary);
 					box-shadow: 0px 4px 8px rgba(4, 45, 65, 0.1);
+				}
+
+				.page-card-tab-button {
+					position: absolute;
+					top: -16px;
+					right: -16px;
+					z-index: 2;
 				}
 			}
 		}

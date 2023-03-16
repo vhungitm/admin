@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: 64px 1fr;
 
-	background: #f8f9fc;
+	background: var(--bg-gray);
 
 	height: 100vh;
 	min-height: 500px;

@@ -64,6 +64,7 @@
 
 				border-radius: 4px;
 				padding: 12px;
+				height: 48px;
 
 				overflow: hidden;
 
@@ -154,7 +155,7 @@
 					}
 
 					&:hover {
-						background: #f8f9fc;
+						background: var(--bg-gray);
 
 						&:nth-last-child(1) {
 							border-radius: 0 0 4px 4px;

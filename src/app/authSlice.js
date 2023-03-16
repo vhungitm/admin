@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import cookies from 'js-cookie';
 
 const initialState = {
 	loading: true,
@@ -10,8 +11,21 @@ const authSlice = createSlice({
 	initialState,
 	reducers: {
 		setCurrentUser: (state, action) => {
-			state.currentUser = action.payload;
-			localStorage.setItem('user', JSON.stringify(action.payload));
+			// Update current user
+			if (action.payload) {
+				const { jwToken, ...user } = action.payload;
+
+				state.currentUser = user;
+				cookies.set('token', jwToken);
+				localStorage.setItem('user', JSON.stringify(user));
+			}
+			// Remove current user
+			else {
+				state.currentUser = null;
+				cookies.remove('token');
+				localStorage.removeItem('user');
+			}
+
 			return state;
 		}
 	}

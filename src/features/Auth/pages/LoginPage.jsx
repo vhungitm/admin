@@ -1,28 +1,31 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import authAPI from 'api/auth/authAPI';
 import { authActions, selectAuth } from 'app/authSlice';
 import { useAppSelector } from 'app/store';
-import { ButtonIconSplit } from 'components/ITM/Button';
-import { FormFieldCheckGroup, FormFieldControlGroup } from 'components/ITM/FormField';
+import { ButtonIconSplit, FormFieldControlGroup } from 'itm-ui';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { validateEmail } from 'utils/common';
 import * as yup from 'yup';
 import './LoginPage.scss';
 
 const LoginPage = () => {
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = useState(false);
-	const [error] = useState();
+	const [error, setError] = useState();
 	const defaultValues = {
-		username: '',
-		password: '',
-		isRemember: false
+		email: '',
+		password: ''
 	};
 
 	const loginValidation = yup.object().shape({
-		username: yup.string().required('Username is required!'),
+		email: yup
+			.string()
+			.required('Email is required!')
+			.test('validateEmail', 'Evalid is invalid!', value => validateEmail(value)),
 		password: yup.string().required('Password is required!')
 	});
 
@@ -38,11 +41,17 @@ const LoginPage = () => {
 	}, [currentUser, navigate]);
 
 	const dispatch = useDispatch();
-	const onSubmit = value => {
-		dispatch(authActions.setCurrentUser({ username: 'admin' }));
+	const onSubmit = async value => {
+		const res = await authAPI.login(value);
 
-		toast.success('Welcome admin');
-		navigate('/home');
+		if (res.succeeded) {
+			const { data } = res;
+
+			toast.success('Welcome ' + data.userName);
+			dispatch(authActions.setCurrentUser(data));
+		} else {
+			setError('Email or password is invalid!');
+		}
 	};
 
 	return (
@@ -56,10 +65,10 @@ const LoginPage = () => {
 				<div className="login-body">
 					<div className="login-error">{error}</div>
 					<FormFieldControlGroup
-						label={{ element: 'Username', required: true, className: 'fw-bold' }}
+						label={{ element: 'Email', required: true }}
 						element={{
 							control,
-							name: 'username',
+							name: 'email',
 							placeholder: 'Enter your email',
 							iconStart: {
 								type: 'img',
@@ -69,7 +78,7 @@ const LoginPage = () => {
 						className="mb-3"
 					/>
 					<FormFieldControlGroup
-						label={{ element: 'Password', required: true, className: 'fw-bold' }}
+						label={{ element: 'Password', required: true }}
 						element={{
 							control,
 							name: 'password',
@@ -89,14 +98,6 @@ const LoginPage = () => {
 						}}
 						className="password mb-3"
 					/>
-					<FormFieldCheckGroup
-						element={{
-							control,
-							name: 'isRemember',
-							options: [{ value: 'true', label: 'Remember me' }]
-						}}
-						className="mb-3"
-					/>
 					<ButtonIconSplit
 						iconStart={{
 							type: 'css',
@@ -104,7 +105,7 @@ const LoginPage = () => {
 						}}
 						element="Login"
 						type="submit"
-						className="btn-block"
+						className="btn-block mt-4"
 					/>
 				</div>
 			</form>

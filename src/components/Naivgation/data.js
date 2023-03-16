@@ -40,7 +40,7 @@ export const routes = [
 	},
 	{
 		name: 'newsUpdate',
-		path: '/news/update',
+		path: '/news/update/:newsId',
 		exact: true,
 		layout: AdminLayout,
 		element: NewsUpdatePage

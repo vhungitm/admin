@@ -1,6 +1,4 @@
-import { ButtonIconSplit } from 'components/ITM';
-import { useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
